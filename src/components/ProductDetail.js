@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
-import { getSelectedProduct } from '../redux/action/Product';
+import { getSelectedProduct, removeSelectedProduct } from '../redux/action/Product';
 import '../css/ProductDetail.css';
 
 const ProductDetail = () => {
@@ -15,6 +15,7 @@ const ProductDetail = () => {
 
     useEffect(()=>{
       dispatch(getSelectedProduct(id))
+      return ()=> dispatch(removeSelectedProduct());
     },[]);
 
     useEffect(()=>{
@@ -112,7 +113,11 @@ const ProductDetail = () => {
         </div>
       )
     }else{
-      return <h1>Loading...</h1>
+      return (
+      <div className='proddetails-loadingContainer'> 
+      <h1>Loading...</h1>
+      </div>
+      );
     }
   
 }

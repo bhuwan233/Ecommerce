@@ -18,4 +18,10 @@ const getSelectedProduct = (prodId) => {
     }
 }
 
-export {getAllProducts, getSelectedProduct};
+const removeSelectedProduct = () => {
+    
+    return ({type:'removeSelectedProduct'});
+    
+}
+
+export {getAllProducts, getSelectedProduct,removeSelectedProduct};

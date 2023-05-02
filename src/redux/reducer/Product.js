@@ -19,6 +19,7 @@ const productState ={
 const products = (state=productState, action) => {
     switch(action.type){
         case 'addAllProducts': return {...state,products:action.payload};
+        case 'filterProductList': return {...state,products:action.payload};
         case 'selectedProductDetails': return {...state, selectedProductDetails: action.payload};
         case 'removeSelectedProduct': return {...state, selectedProductDetails: {}};
         default : return state;

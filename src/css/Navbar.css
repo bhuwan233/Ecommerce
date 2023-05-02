@@ -40,20 +40,25 @@
 
   .nav-navigation li {
     display: block;
-    color: #666;
     text-align: center;
     padding: 14px 16px;
     cursor: pointer;
   }
   
   
-  li:hover:not(.active) {
+  .nav-link:hover:not(.active) {
     background-color: #ddd;
   }
-  
+
   .active {
     color: white;
-    background-color: #00e943bd;
+    background-color: #0034c2bd;
+  }
+  .cart-active{
+    border-radius: 13px;
+    color: aqua;
+    font-size: 22px;
+    background-color: blueviolet;
   }
 
 .nav-search_input{
@@ -71,11 +76,33 @@ width: 30%;
 }
 
 .nav-buttons_container{
-    width: 30%;
-    display: flex;
-    justify-content: end;
-    margin-right: 30px;
+  width: 30%;
+  display: flex;
+  justify-content: end;
+  margin-right: 30px;
 }
+
+.nav-carticon-count{
+  background-color: #9bd0ff;
+    color: white;
+    box-shadow: 1px 0px 3px 2px rgba(0,0,255,0.4);
+    text-align: center;
+    width: 18px;
+    border-radius: 50%;
+    font-size: 12px;
+    position: absolute;
+    top: -7px;
+    left: 18px;
+    height: 19px;
+}
+.nav-carticon{
+  color: "rgb(0 76 208)";
+}
+
+.nav-carticon:hover{
+  cursor: pointer;
+}
+
 .nav-buttons_container button{
     width: 80px;
     height: 35px;

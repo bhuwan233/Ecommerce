@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { getSelectedProduct, removeSelectedProduct } from '../redux/action/Product';
 import '../css/ProductDetail.css';
+import { addItemToCart } from '../redux/action/Cart';
 
 const ProductDetail = () => {
     const {id} = useParams();
@@ -11,6 +12,7 @@ const ProductDetail = () => {
     const selectedProductDetails = useSelector(store=>store.productState.selectedProductDetails);
     
 
+    //const [cartItem, setCartItem] = useState({id:'', thumbnail:'', productName:'', productBrand:'', quantity:1, price:0});
     const [imagesList, setImagesList] = useState([]);
 
     useEffect(()=>{
@@ -60,6 +62,16 @@ const ProductDetail = () => {
       console.log('dots at slideIndex-1 :: '+dots[slideIndex-1]);
       dots[slideIndex-1].className += " active";
     }
+    
+    function handleAddItemToCart(){
+        dispatch(addItemToCart({id:selectedProductDetails.id, 
+          thumbnail:selectedProductDetails.thumbnail,
+          title:selectedProductDetails.title,
+          Brand:selectedProductDetails.brand,
+          quantity:1,
+          price:selectedProductDetails.price
+        }));
+    }
 
     if(showlist){
       return (
@@ -105,7 +117,7 @@ const ProductDetail = () => {
           </div>
           <div className='proddetails-addtocart'>
              <div className='proddetails-price'>Price: ${selectedProductDetails.price}</div>
-             <button className='proddetails-addtocardbtn'>Add To Cart +</button> 
+             <button className='proddetails-addtocardbtn' onClick={(e)=>handleAddItemToCart()}>Add To Cart +</button> 
           </div>
           <p style={{color:'#00e943bd', fontWeight:'800', marginTop:'5px'}}>In Stock!</p>
           <div className='proddetails-extra-details'> Free Delievery </div>

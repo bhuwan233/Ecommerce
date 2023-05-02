@@ -6,7 +6,12 @@ import '../css/Home.css'
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-
+    function handleActiveMenu(){
+        let elements = document.getElementsByClassName('nav-link');
+        for(let i = 0; i < elements.length; i++){
+            elements[i].className = 'nav-link';
+        }
+      }
     const dispatch = useDispatch();
     const products = useSelector(store=>store.productState.products);
     useEffect(()=>{
@@ -16,7 +21,7 @@ const Home = () => {
         return (
             <div className='home-maincontainer'>
                 {products.map(prod=>
-                    <Link to={`${prod.id}`} key={prod.id} className='home-link'>
+                    <Link to={`/product/${prod.id}`} key={prod.id} className='home-link' onClick={()=>handleActiveMenu()}>
                         <ProductCard product={prod} />
                     </Link>
                 )}

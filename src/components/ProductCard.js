@@ -5,21 +5,18 @@ const ProductCard = ({product}) => {
     <div className='productcard-maincontainer'>
         <div className='productcard-image'><img src={product.thumbnail}/></div>
         <div className='productcard-details'>
-        <div className='productcard-price'>
-            <p style={{marginBottom:'5px'}}>Price: {product.price}</p>
-            <p>Discount: {product.discountPercentage}%</p>
+          <div className='productcard-title'>{product.brand} {product.title}</div>
+          <div className='productcard-productdetail'>
+            <div className='productcard-price'>
+                <p>Price: ${product.price}</p>
+                <p>Discount: {product.discountPercentage}%</p>
+            </div>
+            <div className='productcard-description'>
+                <p style={{fontSize:'10px'}}>{product.description}</p>
+                <p>free delievery</p>
+            </div>
+          </div>
         </div>
-        <div className='productcard-description'>
-            <p style={{fontWeight:800}}>{product.title}</p>
-            <hr/>
-            <p style={{fontSize:'10px'}}>{product.description}</p>
-            <p>free delievery</p>
-        </div>
-        </div>
-        {/* ProductCard:
-        <div>Product Id : {product.id}</div>
-        <div>Product Name : {product.name}</div>
-        <div>Product Category : {product.category}</div> */}
     </div>
   )
 }
